@@ -1,22 +1,24 @@
 package com.sre.rules;
 
-import org.jeasy.rules.annotation.Action;
-import org.jeasy.rules.annotation.Condition;
-import org.jeasy.rules.annotation.Fact;
-import org.jeasy.rules.annotation.Rule;
-
+import com.deliveredtechnologies.rulebook.annotation.Given;
+import com.deliveredtechnologies.rulebook.annotation.Rule;
+import com.deliveredtechnologies.rulebook.annotation.Then;
+import com.deliveredtechnologies.rulebook.annotation.When;
 import com.sre.Person;
 
-@Rule(name = "Person rule", description = "Set seniority value based on age")
+@Rule(order = 1)
 public class PersonRule {
 
-	@Condition
-	public boolean isOlder(@Fact("person") Person person) {
+	@Given("person")
+	private Person person;
+
+	@When
+	public boolean isOlder() {
 		return person.getAge() > 60;
 	}
 
-	@Action
-	public void setSeniority(@Fact("person") Person person) {
+	@Then
+	public void setSeniority() {
 		person.setSenior(true);
 	}
 }
