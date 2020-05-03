@@ -7,8 +7,8 @@ import org.jeasy.rules.annotation.Rule;
 
 import com.sre.Person;
 
-@Rule(name = "Person rule", description = "Set seniority value based on age")
-public class PersonRule {
+@Rule(name = "Person Age rule", description = "Set seniority value based on age", priority = 1)
+public class PersonAgeRule {
 
 	@Condition
 	public boolean isOlder(@Fact("person") Person person) {
