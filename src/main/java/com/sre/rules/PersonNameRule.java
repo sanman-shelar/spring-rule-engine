@@ -11,12 +11,12 @@ import com.sre.Person;
 public class PersonNameRule {
 
 	@Condition
-	public boolean isOlder(@Fact("person") Person person) {
+	public boolean isJohn(@Fact("person") Person person) {
 		return person.getName().equalsIgnoreCase("John");
 	}
 
 	@Action
-	public void setSeniority(@Fact("person") Person person) {
+	public void setSurname(@Fact("person") Person person) {
 		person.setName(person.getName().concat(" Doe"));
 	}
 }
