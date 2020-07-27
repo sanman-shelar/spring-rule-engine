@@ -13,12 +13,12 @@ public class StudentAHasLangMoreThan100EngMoreThan50 {
 
 	@Condition
 	public boolean when(@Fact("studentA") Student studentA, @Fact("studentB") Student studentB) {
-		return studentA.getLang() > 100 && studentA.getEnglish() < 50 && studentB.getLang() > 100
-				&& studentB.getEnglish() > 50;
+		return studentA.getLang() > 100 && studentA.getEnglish() > 50 && studentB.getLang() > 100
+				&& studentB.getEnglish() < 50;
 	}
 
 	@Action
-	public void then(@Fact("topper") Topper topper, @Fact("studentA") Student studentA) {
-		topper.setStudent(studentA);
+	public void then(@Fact("topper") Topper topper, @Fact("studentB") Student studentB) {
+		topper.setStudent(studentB);
 	}
 }
